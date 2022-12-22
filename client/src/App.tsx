@@ -1,3 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+import { Layout } from './components/Layout';
+
 export const App = () => {
-  return <h3>App</h3>;
+  return (
+    <>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </>
+  );
 };
