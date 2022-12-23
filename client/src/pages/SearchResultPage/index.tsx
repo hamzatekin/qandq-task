@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 
-const MoviePage = () => {
+const SearchResultPage = () => {
   const param = useParams();
 
   return (
     <>
-      <h3>MoviePage id: {param?.id}</h3>
+      <h3>SearchResultPage</h3>
     </>
   );
 };
 
-export default MoviePage;
+export default SearchResultPage;

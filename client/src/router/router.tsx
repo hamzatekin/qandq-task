@@ -1,11 +1,12 @@
-import { lazy } from "react";
-import { Navigate, RouteObject } from "react-router-dom";
-import { RoutePath } from "./const";
+import { lazy } from 'react';
+import { Navigate, RouteObject } from 'react-router-dom';
+import { RoutePath } from './const';
 
-const SearchPage = lazy(() => import("../pages/SearchPage"));
-const MoviePage = lazy(() => import("../pages/MoviePage"));
-const MovieListPage = lazy(() => import("../pages/MovieListPage"));
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage"));
+const SearchPage = lazy(() => import('../pages/SearchPage'));
+const MoviePage = lazy(() => import('../pages/MoviePage'));
+const MovieListPage = lazy(() => import('../pages/MovieListPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+const SearchResultPage = lazy(() => import('../pages/SearchResultPage'));
 
 export const privateRoutes: RouteObject[] = [
   {
@@ -25,7 +26,11 @@ export const privateRoutes: RouteObject[] = [
     element: <NotFoundPage />,
   },
   {
-    path: "*",
+    path: RoutePath.SEARCH_RESULTS,
+    element: <SearchResultPage />,
+  },
+  {
+    path: '*',
     element: <Navigate to={RoutePath.NOT_FOUND} replace />,
   },
 ];

@@ -1,3 +1,3 @@
-interface LayoutProps {
+interface QueryClientProps {
   children?: React.ReactNode;
 }

@@ -1,4 +1,4 @@
-type RoutePathType = import('./const').RoutePath;
+type RoutePathType = import('./const.ts').RoutePath;
 
 interface NavItem {
   icon: React.ReactNode;
