@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AsyncQuery from '../../../components/AsyncQuery';
 import useDebounce from '../../../hooks/useDebounce';
-import { useSearchMovie } from '../../../hooks/useSearchMovie';
+import { useSearchMovieByTitle } from '../../../hooks/useSearchMovieByTitle';
 import { RoutePath } from '../../../router/const';
 import styles from './styles.module.scss';
 
@@ -17,7 +17,7 @@ export const SearchInput = () => {
     setSearchText(text);
   };
 
-  const searchMovieQuery = useSearchMovie(debouncedSearchTerm);
+  const searchMovieQuery = useSearchMovieByTitle(debouncedSearchTerm);
 
   return (
     <>
@@ -32,7 +32,11 @@ export const SearchInput = () => {
                 </Button>
               </div>
             )).slice(0, 2)}
-            {data?.Search && <Link to={`/search/${debouncedSearchTerm}`}>See all results</Link>}
+            {data?.Search && (
+              <Button component={Link} to={`${RoutePath.SEARCH}/${debouncedSearchTerm}`}>
+                See all results
+              </Button>
+            )}
           </>
         )}
       </AsyncQuery>

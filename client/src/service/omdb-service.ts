@@ -5,3 +5,9 @@ export const getMovieByTitle = async (title: string, pageNumber: number) => {
 
   return response.data as OmdbSearchResponse;
 };
+
+export const getMovieByImdbId = async (imdbId: string) => {
+  const response = await omdbClient.get(`?i=${imdbId}`);
+
+  return response.data as OmdbMovieResponse;
+};
