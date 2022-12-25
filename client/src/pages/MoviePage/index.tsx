@@ -12,23 +12,20 @@ const MoviePage = () => {
     <>
       <h3>MoviePage id: {param?.id}</h3>
       <AsyncQuery reactQueryResult={result}>
-        {(data) => (
+        {({ Title, Poster, Plot, Actors, Director, Genre, Released, Runtime, Writer, Year }) => (
           <>
-            {data?.Title && (
+            {Title && (
               <div>
-                <h3>{data.Title}</h3>
-                <img
-                  src={data.Poster.replace('SX300', 'SX600').replace('SY300', 'SY600')}
-                  alt={data.Title}
-                />
-                <p>{data.Plot}</p>
-                <p>{data.Actors}</p>
-                <p>{data.Director}</p>
-                <p>{data.Genre}</p>
-                <p>{data.Released}</p>
-                <p>{data.Runtime}</p>
-                <p>{data.Writer}</p>
-                <p>{data.Year}</p>
+                <h3>{Title}</h3>
+                <img src={Poster.replace('SX300', 'SX600').replace('SY300', 'SY600')} alt={Title} />
+                <p>{Plot}</p>
+                <p>{Actors}</p>
+                <p>{Director}</p>
+                <p>{Genre}</p>
+                <p>{Released}</p>
+                <p>{Runtime}</p>
+                <p>{Writer}</p>
+                <p>{Year}</p>
 
                 <button onClick={() => navigate(-1)}>Back</button>
               </div>
