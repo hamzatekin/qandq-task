@@ -1,3 +1,3 @@
 interface SearchInputTypes {
-  onItemChanged: (item: OmdbMovie | null) => void;
+  onItemChanged: (item: OmdbMovie | null, searchText: string) => void;
 }

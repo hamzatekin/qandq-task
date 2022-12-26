@@ -1,4 +1,5 @@
-import { Button } from '@mui/material';
+import { Avatar, Button, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AsyncQuery from '../../components/AsyncQuery';
 import { useSearchMovieByTitle } from '../../hooks/useSearchMovieByTitle';
@@ -11,18 +12,46 @@ const SearchResultPage = () => {
 
   return (
     <>
-      <h2>SearchResultPage {param.title}</h2>
-      <Button component={Link} variant="contained" to={RoutePath.HOME}>
+      <Button
+        style={{ marginTop: '1rem', margin: '8px 16px' }}
+        component={Link}
+        variant="contained"
+        to={RoutePath.HOME}
+      >
         Go back
       </Button>
       <AsyncQuery reactQueryResult={res}>
         {(data) => (
           <>
-            {data?.Search.map(({ imdbID, Title }) => (
-              <div key={imdbID}>
-                <p>Title: {Title}</p>
-              </div>
-            ))}
+            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+              {data?.Search.map(({ imdbID, Title, Poster, Year }) => {
+                console.log('Poster', Poster);
+
+                return (
+                  <Fragment key={imdbID}>
+                    <ListItem>
+                      <ListItemAvatar>
+                        {Poster !== 'N/A' ? (
+                          <img
+                            style={{ width: '100px', borderRadius: '10%' }}
+                            loading="lazy"
+                            src={Poster}
+                            alt={Title}
+                          />
+                        ) : (
+                          <Avatar>{Title[0]}</Avatar>
+                        )}
+                      </ListItemAvatar>
+                      <ListItemText
+                        style={{ marginLeft: '1rem' }}
+                        primary={Title}
+                        secondary={Year}
+                      />
+                    </ListItem>
+                  </Fragment>
+                );
+              })}
+            </List>
           </>
         )}
       </AsyncQuery>

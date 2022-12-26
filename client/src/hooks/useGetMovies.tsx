@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getMovies } from '../service/local-service';
 
-export const useGetMovies = () => {
+export const useGetInfiniteMovies = () => {
   return useInfiniteQuery({
     queryKey: ['getMovies'],
     queryFn: ({ pageParam = 1 }) => getMovies(pageParam),

@@ -10,8 +10,13 @@ export const MovieSearch = () => {
     <>
       <Typography variant="h5">Search movies</Typography>
       <SearchInput
-        onItemChanged={(movie) => {
+        onItemChanged={(movie, searchText) => {
           if (!movie?.imdbID) {
+            return;
+          }
+
+          if (movie?.imdbID === 'see-more-results') {
+            navigate(`${RoutePath.SEARCH}/${searchText}`);
             return;
           }
 

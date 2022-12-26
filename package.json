@@ -8,5 +8,13 @@
   "workspaces": [
     "client",
     "server"
-  ]
+  ],
+  "scripts": {
+    "start-client": "cd client && yarn start",
+    "start-server": "cd server && yarn start",
+    "start": "concurrently \"yarn start-client\" \"yarn start-server\""
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }

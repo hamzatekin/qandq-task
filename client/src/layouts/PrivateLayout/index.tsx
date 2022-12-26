@@ -8,17 +8,13 @@ import {
   ButtonBase,
   Container,
   CssBaseline,
-  FormControlLabel,
-  FormGroup,
   IconButton,
   Menu,
   MenuItem,
-  Switch,
   Toolbar,
   Typography,
 } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
-import MenuIcon from '@mui/icons-material/Menu';
 import { useUserActions } from '../../store/useUserStore';
 import { RoutePath } from '../../router/const';
 
@@ -33,8 +29,6 @@ export const PrivateLayout = () => {
   };
 
   const logUserOut = () => {
-    console.log('clicked');
-
     logOut();
   };
 
@@ -51,7 +45,7 @@ export const PrivateLayout = () => {
       <CssBaseline />
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-          <Toolbar style={{justifyContent: 'space-between'}}>
+          <Toolbar style={{ justifyContent: 'space-between' }}>
             <ButtonBase type="button" onClick={navigateToHome}>
               <Typography variant="h6" sx={{ flexGrow: 1 }} component="div">
                 Movify
