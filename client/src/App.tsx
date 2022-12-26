@@ -1,13 +1,13 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Layout } from './components/Layout';
 import { ReactQuery } from './components/ReactQuery';
+import { Layouts } from './layouts';
 
 export const App = () => {
   return (
     <>
       <ReactQuery>
         <BrowserRouter>
-          <Layout />
+          <Layouts />
         </BrowserRouter>
       </ReactQuery>
     </>

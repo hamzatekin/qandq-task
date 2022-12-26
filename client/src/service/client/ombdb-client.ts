@@ -3,9 +3,6 @@ import axios, { AxiosRequestConfig } from 'axios';
 export const BASE_PATH = process.env.REACT_APP_OMDB_API;
 export const API_KEY = process.env.REACT_APP_API_KEY;
 
-console.log('basePath', BASE_PATH);
-console.log('apiKey', API_KEY);
-
 const omdbClient = axios.create({
   baseURL: `${BASE_PATH}`,
   headers: {

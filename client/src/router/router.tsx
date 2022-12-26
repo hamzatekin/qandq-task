@@ -7,6 +7,7 @@ const MoviePage = lazy(() => import('../pages/MoviePage'));
 const MovieListPage = lazy(() => import('../pages/MovieListPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 const SearchResultPage = lazy(() => import('../pages/SearchResultPage'));
+const LoginPage = lazy(() => import('../pages/Login/LoginPage'));
 
 export const privateRoutes: RouteObject[] = [
   {
@@ -28,6 +29,21 @@ export const privateRoutes: RouteObject[] = [
   {
     path: RoutePath.SEARCH_RESULTS,
     element: <SearchResultPage />,
+  },
+  {
+    path: '*',
+    element: <Navigate to={RoutePath.NOT_FOUND} replace />,
+  },
+];
+
+export const publicRoutes: RouteObject[] = [
+  {
+    path: RoutePath.HOME,
+    element: <LoginPage />,
+  },
+  {
+    path: RoutePath.NOT_FOUND,
+    element: <NotFoundPage />,
   },
   {
     path: '*',

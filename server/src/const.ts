@@ -10,3 +10,8 @@ export const SwaggerDocument = {
     },
   ],
 } as const;
+
+export enum Order {
+  ASC = 'ASC',
+  DESC = 'DESC',
+}

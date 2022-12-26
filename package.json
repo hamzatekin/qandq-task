@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "description": "qanq-challenge",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ]
 }

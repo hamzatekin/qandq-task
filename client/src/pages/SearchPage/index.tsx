@@ -1,10 +1,12 @@
+import { Box } from '@mui/material';
 import { MovieSearch } from '../../features/MovieSearch';
 
 const SearchPage = () => {
   return (
     <>
-      <h3>SearchPage</h3>
-      <MovieSearch />
+      <Box marginTop={'2rem'}>
+        <MovieSearch />
+      </Box>
     </>
   );
 };
