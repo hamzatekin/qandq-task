@@ -10,6 +10,9 @@
     "server"
   ],
   "scripts": {
+    "dev-client": "cd client && yarn start",
+    "dev-server": "cd server && yarn start:dev",
+    "dev": "concurrently \"yarn dev-client\" \"yarn dev-server\"",
     "start-client": "cd client && yarn start",
     "start-server": "cd server && yarn start",
     "start": "concurrently \"yarn start-client\" \"yarn start-server\""

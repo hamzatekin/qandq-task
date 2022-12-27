@@ -14,3 +14,8 @@ interface Movie {
   createdAt: string | Date;
   updatedAt: string | Date;
 }
+
+interface RecommendMoviePayload {
+  imdbId: string;
+  to: string;
+}

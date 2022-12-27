@@ -136,8 +136,8 @@ export class MoviesService {
     return this._movieRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} movie`;
+  findOne(id: string) {
+    return this._movieRepository.findOne({ where: { id } });
   }
 
   update(id: number, updateMovieDto: UpdateMovieDto) {

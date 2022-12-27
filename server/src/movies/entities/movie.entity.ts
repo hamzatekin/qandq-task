@@ -9,7 +9,7 @@ import {
 @Entity()
 export class Movie {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column()
   title: string;

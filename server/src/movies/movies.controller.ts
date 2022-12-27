@@ -24,9 +24,6 @@ export class MoviesController {
 
   @Get('insertMoviesFromApi')
   insertMoviesFromApi(@Query() pageOptionsDto: PageOptionsDto) {
-    // const limit = query?.limit ? Number(query?.limit) : MOVIE_LIMIT;
-    console.log('pageOptionsDto', pageOptionsDto);
-
     return this.moviesService.insertMoviesFromApi(pageOptionsDto);
   }
 
@@ -47,7 +44,7 @@ export class MoviesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.moviesService.findOne(+id);
+    return this.moviesService.findOne(id);
   }
 
   @Patch(':id')

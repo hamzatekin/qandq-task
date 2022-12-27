@@ -10,7 +10,7 @@ import { Movie } from '../../movies/entities/movie.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column({ nullable: true })
   name?: string;

@@ -5,7 +5,7 @@ Highly reccomend to use [yarn](https://classic.yarnpkg.com/lang/en/docs/install/
 
 first run `yarn` to install all dependencies
 
-then
+to run the development server
 
 run `yarn start` to start both frontend and backend
 

@@ -23,6 +23,7 @@ export const SearchInput = ({ onItemChanged }: SearchInputTypes) => {
 
   return (
     <Autocomplete
+      data-testid="search-input"
       style={{ marginTop: '1rem' }}
       filterOptions={(options) => options}
       onInputChange={(_, value) => setSearchText(value)}

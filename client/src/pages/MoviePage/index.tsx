@@ -1,19 +1,74 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Modal, TextField, Typography } from '@mui/material';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import AsyncQuery from '../../components/AsyncQuery';
+import { useRecommendMovie } from '../../hooks/useRecommendMovie';
 import { useSearchMovieByImdbId } from '../../hooks/useSearchMovieByImdbId';
+
+const style = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
 
 const MoviePage = () => {
   const param = useParams() as { id: string };
+  const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState('');
+
   const navigate = useNavigate();
 
   const result = useSearchMovieByImdbId(param.id);
+  // todo: handle status
+  const { mutate } = useRecommendMovie();
+
+  const recommend = () => {
+    if (email) {
+      mutate({ to: email, imdbId: param.id });
+      setOpen(false);
+      setEmail('');
+    }
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setEmail('');
+  };
 
   return (
     <>
       <Button style={{ margin: '8px 16px' }} variant="contained" onClick={() => navigate(-1)}>
         GO BACK
       </Button>
+      <Button onClick={() => setOpen(true)} style={{ margin: '8px 16px' }} variant="contained">
+        Reccommend
+      </Button>
+      <Modal
+        hideBackdrop
+        open={open}
+        onClose={closeModal}
+        aria-labelledby="child-modal-title"
+        aria-describedby="child-modal-description"
+      >
+        <Box sx={{ ...style, width: 400 }}>
+          <TextField
+            name="email"
+            label="Email"
+            onChange={(ev) => setEmail(ev.target.value)}
+            variant="outlined"
+          />
+          <Button onClick={() => recommend()}>Reccommend</Button>
+          <Button onClick={closeModal}>Close</Button>
+        </Box>
+      </Modal>
       <AsyncQuery reactQueryResult={result}>
         {({ Title, Poster, Plot, Actors, Director, Genre, Released, Runtime, Writer, Year }) => (
           <>
